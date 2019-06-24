@@ -1,6 +1,8 @@
 package fi.haagahelia.codingLesson.domain;
 
-import java.util.Date;
+
+
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,22 +13,26 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "lesson_entity", schema = "public", catalog = "postgres")
-public class LessonEntity {
-
+@Table(name = "lesson", schema = "public", catalog = "postgres")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+public class LessonEntity implements Serializable{
+	private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
     
     @Column(name="start_time")
-    private Date startTime;
+//    @JsonFormat(pattern="yyyy-MM-dd HH:mm", shape=Shape.STRING)
+    private String startTime;
     
     @Column(name="end_time")
-    private Date endTime;
+    private String endTime;
     
     @Column(name="location")
     private String location;
@@ -48,7 +54,7 @@ public class LessonEntity {
     public LessonEntity() {
     }
 
-    public LessonEntity(Date startTime, Date endTime, String location, Integer satisfactionLevel, LanguageEntity language, UserEntity user) {
+    public LessonEntity(String startTime, String endTime, String location, Integer satisfactionLevel, LanguageEntity language, UserEntity user) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.location = location;
@@ -67,26 +73,26 @@ public class LessonEntity {
     }
 
     
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.startTime =startTime;
-
-    }
+    
 
     
-    public Date getEndTime() {
-        return endTime;
-    }
+    public String getStartTime() {
+		return startTime;
+	}
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
 
-    
-    public String getLocation() {
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
+	public String getLocation() {
         return location;
     }
 

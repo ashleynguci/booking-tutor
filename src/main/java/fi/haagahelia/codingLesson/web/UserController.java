@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import fi.haagahelia.codingLesson.domain.LanguageEntity;
+import fi.haagahelia.codingLesson.domain.UserEntity;
 import fi.haagahelia.codingLesson.repo.LanguageRepository;
 import fi.haagahelia.codingLesson.repo.LessonRepository;
 import fi.haagahelia.codingLesson.repo.UserRepository;
@@ -26,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 //@RequestMapping("/api")
 
-public class LanguageController {
+public class UserController {
     @Autowired
     private LessonRepository lessonRepository;
     @Autowired
@@ -35,18 +36,8 @@ public class LanguageController {
     private LanguageRepository langRepository;
 
      //RESTful service to get all book
-    @RequestMapping(value ="/languages", method = RequestMethod.GET)
-    public @ResponseBody List<LanguageEntity> langListRest(){
-        return (List<LanguageEntity>) langRepository.findAll();
+    @RequestMapping(value ="/tutors", method = RequestMethod.GET)
+    public @ResponseBody List<UserEntity> tutorListRest(){
+        return (List<UserEntity>) userRepository.findAll();
     }
-    
-//    @GetMapping("/languages")
-//    public List<LanguageEntity> getAllLanguages() {
-//    	return (List<LanguageEntity>) langRepository.findAll();
-//    }
-//    
-//    @PostMapping("/languages")
-//    public LanguageEntity createLanguage(@Valid @RequestBody LanguageEntity language) {
-//        return langRepository.save(language);
-//    }
-}
+}  

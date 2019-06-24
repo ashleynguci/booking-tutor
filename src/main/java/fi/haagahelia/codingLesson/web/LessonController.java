@@ -10,7 +10,7 @@ import fi.haagahelia.codingLesson.repo.LanguageRepository;
 import fi.haagahelia.codingLesson.repo.LessonRepository;
 import fi.haagahelia.codingLesson.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,29 +24,29 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 
 public class LessonController {
     @Autowired
     private LessonRepository lessonRepository;
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private LanguageRepository langRepository;
+//    @Autowired
+//    private UserRepository userRepository;
+//    @Autowired
+//    private LanguageRepository langRepository;
 
      //RESTful service to get all book
-//    @RequestMapping(value ="/lessons", method = RequestMethod.GET)
-//    public @ResponseBody List<LessonEntity> lessonListRest(){
-//        return (List<LessonEntity>) lessonRepository.findAll();
+    @RequestMapping(value ="/lessons", method = RequestMethod.GET)
+    public @ResponseBody List<LessonEntity> lessonListRest(){
+        return (List<LessonEntity>) lessonRepository.findAll();
+    }
+    
+//    @GetMapping("/lessons")
+//    public List<LessonEntity> getAllLessons() {
+//    	return lessonRepository.findAll();
 //    }
-    
-    @GetMapping("/lessons")
-    public List<LessonEntity> getAllLessons() {
-    	return (List<LessonEntity>) lessonRepository.findAll();
-    }
-    
-    @PostMapping("/lessons")
-    public LessonEntity createLesson(@Valid @RequestBody LessonEntity lesson) {
-        return lessonRepository.save(lesson);
-    }
+//    
+//    @PostMapping("/lessons")
+//    public LessonEntity createLesson(@Valid @RequestBody LessonEntity lesson) {
+//        return lessonRepository.save(lesson);
+//    }
 }

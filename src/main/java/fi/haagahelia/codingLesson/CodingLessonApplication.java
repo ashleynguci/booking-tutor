@@ -11,7 +11,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.text.SimpleDateFormat;
+
 
 
 
@@ -23,11 +23,11 @@ public class CodingLessonApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(LessonRepository lessonRepository, LanguageRepository langRepository, UserRepository userRepository) {
+	public CommandLineRunner demo(LessonRepository lessonRepository, LanguageRepository langRepository , UserRepository userRepository) {
 	return (args) -> {
 
-			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-			langRepository.save( new LanguageEntity("Java"));
+	
+		langRepository.save( new LanguageEntity("Java"));
 		langRepository.save( new LanguageEntity("C#"));
 		langRepository.save( new LanguageEntity("Javascript"));
 		langRepository.save( new LanguageEntity("Scala"));
@@ -42,14 +42,11 @@ public class CodingLessonApplication {
 			userRepository.save( new UserEntity("Carlos Sunila"));
 			userRepository.save( new UserEntity("Markus Leppa"));
 
-
-			lessonRepository.save( new LessonEntity(dateFormat.parse("2019-06-20 15:00"),dateFormat.parse("2019-06-20 18:00"), "Arentikuja 1D304", 4, langRepository.findByName("Javascript").get(0), userRepository.findByName("Vesa Huoritanen").get(0)));
-			lessonRepository.save( new LessonEntity(dateFormat.parse("2019-06-15 09:00"),dateFormat.parse("2019-06-15 13:00"), "Hamenkatu 10A", 5, langRepository.findByName("C#").get(0), userRepository.findByName("Katie Nguyen").get(0)));
-			lessonRepository.save( new LessonEntity(dateFormat.parse("2019-06-21 19:00"),dateFormat.parse("2019-06-21 21:30"), "Aurakatu 123", 3, langRepository.findByName("React").get(0), userRepository.findByName("Carlos Sunila").get(0)));
-
+		lessonRepository.save( new LessonEntity("2019-06-20 15:00","2019-06-20 18:00", "Arentikuja 1D304", 4, langRepository.findByName("Javascript").get(0), userRepository.findByName("Vesa Huotarinen").get(0)));
+		lessonRepository.save( new LessonEntity("2019-06-15 09:00","2019-06-15 13:00", "Hamenkatu 10A", 5, langRepository.findByName("C#").get(0), userRepository.findByName("Katie Nguyen").get(0)));
+		lessonRepository.save( new LessonEntity("2019-06-21 19:00","2019-06-21 21:30", "Aurakatu 123", 3, langRepository.findByName("React").get(0), userRepository.findByName("Carlos Sunila").get(0)));
 
 
-
-		};
+	};
 	}
 }
