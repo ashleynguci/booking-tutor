@@ -40,4 +40,8 @@ public class UserController {
     public @ResponseBody List<UserEntity> tutorListRest(){
         return (List<UserEntity>) userRepository.findAll();
     }
+    @RequestMapping(value="/tutor/{id}", method = RequestMethod.GET)
+    public @ResponseBody Optional<UserEntity> findTutorRest(@PathVariable("id") Long Id) {	
+   	return userRepository.findById(Id);
+    }  
 }  

@@ -39,6 +39,10 @@ public class LanguageController {
     public @ResponseBody List<LanguageEntity> langListRest(){
         return (List<LanguageEntity>) langRepository.findAll();
     }
+    @RequestMapping(value="/language/{id}", method = RequestMethod.GET)
+    public @ResponseBody Optional<LanguageEntity> findLangRest(@PathVariable("id") Long Id) {	
+   	return langRepository.findById(Id);
+    }   
     
 //    @GetMapping("/languages")
 //    public List<LanguageEntity> getAllLanguages() {

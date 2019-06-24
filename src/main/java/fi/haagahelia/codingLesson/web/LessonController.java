@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import fi.haagahelia.codingLesson.domain.LanguageEntity;
 import fi.haagahelia.codingLesson.domain.LessonEntity;
 import fi.haagahelia.codingLesson.repo.LanguageRepository;
 import fi.haagahelia.codingLesson.repo.LessonRepository;
@@ -24,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-//@RequestMapping("/api")
+
 
 public class LessonController {
     @Autowired
@@ -39,14 +40,9 @@ public class LessonController {
     public @ResponseBody List<LessonEntity> lessonListRest(){
         return (List<LessonEntity>) lessonRepository.findAll();
     }
-    
-//    @GetMapping("/lessons")
-//    public List<LessonEntity> getAllLessons() {
-//    	return lessonRepository.findAll();
-//    }
-//    
-//    @PostMapping("/lessons")
-//    public LessonEntity createLesson(@Valid @RequestBody LessonEntity lesson) {
-//        return lessonRepository.save(lesson);
-//    }
+    @RequestMapping(value="/lesson/{id}", method = RequestMethod.GET)
+    public @ResponseBody Optional<LessonEntity> findLessonRest(@PathVariable("id") Long Id) {	
+   	return lessonRepository.findById(Id);
+    }  
+
 }

@@ -45,6 +45,7 @@ public class CodingLessonApplication {
 		lessonRepository.save( new LessonEntity("2019-06-20 15:00","2019-06-20 18:00", "Arentikuja 1D304", 4, langRepository.findByName("Javascript").get(0), userRepository.findByName("Vesa Huotarinen").get(0)));
 		lessonRepository.save( new LessonEntity("2019-06-15 09:00","2019-06-15 13:00", "Hamenkatu 10A", 5, langRepository.findByName("C#").get(0), userRepository.findByName("Katie Nguyen").get(0)));
 		lessonRepository.save( new LessonEntity("2019-06-21 19:00","2019-06-21 21:30", "Aurakatu 123", 3, langRepository.findByName("React").get(0), userRepository.findByName("Carlos Sunila").get(0)));
+		lessonRepository.save( new LessonEntity("2019-06-20 14:00","2019-06-20 16:00", "Yo kyla  5D7", 4, langRepository.findByName("Javascript").get(0), userRepository.findByName("Carlos Sunila").get(0)));
 
 
 	};
