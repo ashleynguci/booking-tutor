@@ -1,9 +1,10 @@
 package fi.haagahelia.codingLesson.domain;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,16 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "tutor", schema = "public", catalog = "postgres")
 //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 
-public class UserEntity {
+public class TutorEntity {
 	
 //	private static final long serialVersionUID = 1L;
     @Id
@@ -34,14 +32,14 @@ public class UserEntity {
 
     
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "tutor")
     private List<LessonEntity> lessons;
 
-    public UserEntity(){
+    public TutorEntity(){
 
     }
 
-    public UserEntity(String name) {
+    public TutorEntity(String name) {
         this.name = name;
     }
 
@@ -73,3 +71,4 @@ public class UserEntity {
     }
 
 }
+

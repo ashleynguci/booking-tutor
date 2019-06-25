@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Please sign in</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+				<div class="card card-signin my-5">
+					<div class="card-body">
+						<h5 class="card-title text-center">Please Sign In</h5>
+						<div th:if="${param.error}">Invalid username or password.</div>
+						<form class="form-signin" th:action="@{/login}" method="post">
+							<div class="form-label-group">
+								<input type="text" name="username" class="form-control"
+									placeholder="User name" required autofocus> 
+									<!-- <label
+									for="username">User Name</label> -->
+							</div>
+<br/>
+							<div class="form-label-group">
+								<input type="password" name="password" class="form-control"
+									placeholder="Password" required> <!-- <label for="password">Password</label> -->
+							</div>
+
+<br/>
+							<button class="btn btn-lg btn-primary btn-block"
+								type="submit">Sign in</button>
+
+						</form>
+						<a th:href="@{/signup}">Sign up</a>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
