@@ -19,30 +19,38 @@
 	
 	<br>
 	<br>
-	<a sec:authorize="hasAuthority('ADMIN')" href="/lessonlist" class="btn btn-danger">Admin Page</a>
-<div class="col-md-4" style="padding:20px 0">
+	
+<div  style="padding:20px 0">
 		<form th:action="@{/logout}" method="post">
 			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
 		</form>
 	</div>
-<table class="table table-striped">
+<table class="table table-striped table-dark">
 <tbody>
 <tr>
-
-					
-					<th>Name of tutor</th>
-					<th>Background</th>
-					 <th> </th>
-					
+					<th>Id</th>
+					<th>Date</th>
+					<th>Start </th>
+					<th>End</th>
+					<th>Location</th>
+					<th>Satisfaction Level</th>
+					<th>isComplete</th>
+					<th>Tutor Name</th>
+					<th>Teaching Language</th>
+					<th></th>
 				</tr>
-<tr th:each ="tutor:${tutors}">
+<tr th:each ="lesson:${lessons}">
 
-
-<td th:text="${tutor.name}"></td>
-
-<td th:text="${tutor.background}"></td>
-
-<td ><a th:href="@{/schedule/{id}(id=${tutor.id})}"class="btn btn-success">Check Schedule</a></td>
+<td th:text="${lesson.id}"></td>
+<td th:text="${#dates.format(lesson.date, 'dd-MM-yyyy')}"></td>
+<td th:text="${lesson.startTime}"></td>
+<td th:text="${lesson.endTime}"></td>
+<td th:text="${lesson.location}"></td>
+<td th:text="${lesson.satisfactionLevel}"></td>
+<td th:text="${lesson.completed}"></td>
+<td th:text="${lesson.tutor.name}"></td>
+<td th:text="${lesson.language.name}"></td>
+<td ><a th:href="@{/edit/{id}(id=${lesson.id})}"class="btn btn-success">Update</a></td>
 
 
 </tr>
@@ -51,7 +59,7 @@
 
 </table>
 
-<a href="/booktutor" class="btn btn-primary">Book Tutor</a>
+<a href="/tutorlist" class="btn btn-primary">Back</a>
 
 </div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>

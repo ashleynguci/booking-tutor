@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Book List</title>
+<meta http-equiv = "Content-Type" content = "text/html" charset="UTF-8"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+<br/>
+<h1>Edit Book</h1>
+<div>
+<form th:object="${lesson}" th:action="@{../save}" action="#" method="post">
+<input type="hidden" th:field="*{id}" class="form-control"/>
+<label for="title">Date</label>
+<input type="date" id="Title" th:field="*{date}" />
+<br>
+<label for="start">Start</label>
+<input type="text" id="start" th:field="*{startTime}" />
+<br>
+<label for="end">End</label>
+<input type="text" th:field="*{endTime}" />
+<br>
+<label for="location">Location</label>
+<input type="text" th:field="*{location}" />
+<br>
+<label for="satisfaction">SatisfactionLevel</label>
+<input type="text" th:field="*{satisfactionLevel}" />
+
+<label for="completed">isCompleted</label>
+<input type="checkbox" th:field="*{completed}" th:checked="${flag} ? 'checked'" />
+
+<label for="tutorlist">Tutor</label>
+<select id="tutorlist" th:field="*{tutor}" class="form-control">
+					<option th:each="tutor: ${tutors}" th:value="${tutor.id}"
+						th:text="${tutor.name}"></option>
+				</select>
+<br>
+<label for="languagelist">Teaching Language</label>
+<select id="languagelist" th:field="*{language}" class="form-control">
+					<option th:each="language: ${languages}" th:value="${language.id}"
+						th:text="${language.name}"></option>
+				</select>
+
+				<input type="submit" class="btn btn-success" value="Save"></input>
+
+</form>
+</div>
+</div>
+</body>
+</html>

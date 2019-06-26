@@ -104,6 +104,23 @@ public class WebController {
 		return "booktutor";
 	}
     
+    @RequestMapping(value = "/lessonlist")
+    public String lessonList(Model model) {
+		  model.addAttribute("lessons",lessonRepository.findAll());
+		  return "lessonlist";
+		//return name of template
+	}
+    
+    @RequestMapping(value = "/edit/{id}")
+	public String edit(@PathVariable("id") Long lessonId, Model model){
+	model.addAttribute("lesson", lessonRepository.findById(lessonId).get());
+	model.addAttribute("languages", langRepository.findAll());
+	model.addAttribute("tutors", tutorRepository.findAll());
+	
+	return "editlesson";
+	
+	}
+    
     @RequestMapping(value="/save", method=RequestMethod.POST)
 	public String save(LessonEntity lesson) {
 		lessonRepository.save(lesson);

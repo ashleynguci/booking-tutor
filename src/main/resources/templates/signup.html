@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add user</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+				<div class="card card-signin my-5">
+					<div class="card-body">
+						<h3 class="card-title text-center">Sign Up</h3>
+						<div th:if="${param.error}">Invalid username or password.</div>
+						<form th:object="${signupform}" th:action="@{/saveuser}"
+							action="#" method="post">
+							<div class="form-label-group">
+								<input type="text" th:field="*{username}" class="form-control"
+									placeholder="Username" />
+								<p th:if="${#fields.hasErrors('username')}"
+									th:errors="*{username}">Username Error</p>
+							</div>
+							<br />
+							<div class="form-label-group">
+								<input type="password" th:field="*{password}"
+									class="form-control" placeholder="Password" />
+								<p th:if="${#fields.hasErrors('password')}"
+									th:errors="*{password}">Password Error</p>
+							</div>
+
+							<br />
+							<div class="form-label-group">
+								<input type="password" th:field="*{passwordCheck}"
+									class="form-control " placeholder="Re-type Password" />
+							</div>
+<br/>
+							 <span style="font-size:10px" class="help-block">By clicking "Sign up", you agree to our Terms of Service.</span>
+							<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -25,7 +25,7 @@ public class LessonEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private int id;
+	private Long id;
 
 	@Column(name = "start_time")
 //    @JsonFormat(pattern="yyyy-MM-dd HH:mm", shape=Shape.STRING)
@@ -88,11 +88,13 @@ public class LessonEntity implements Serializable {
 		this.date = date;
 	}
 
-	public int getId() {
+	
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -55,7 +55,7 @@ public class CodingLessonApplication {
 		userRepository.save(new User("user", "$2a$10$iaA5jcbqZbs5Qfz4eC1GR.djm6ug32hghD0oRxY5EasJgqQkgCk4O", "USER"));
 		userRepository.save(new User("admin", "$2a$10$OPO.1kKxqwU7m8aCkBlm5OYWGbRx2ol9k6N382WJP6UsjFsGlJZq2", "ADMIN"));
 		
-
+//hello
 	};
 	}
 }
