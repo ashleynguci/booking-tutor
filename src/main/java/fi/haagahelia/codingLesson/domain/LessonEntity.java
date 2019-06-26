@@ -40,7 +40,7 @@ public class LessonEntity implements Serializable {
 	@Column(name = "Date")
 	private Date date;
 	
-	@DateTimeFormat(pattern="dd/MM/yyyy")
+	@DateTimeFormat (pattern="yyyy-MM-dd") 
 	public Date getDate() {
 		return date;
 	}

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book tutor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div class="container">
+<br>
+<br>
+
+	<h1>Book Lesson</h1>
+	<div>
+		<form th:object="${lesson} " th:action="@{save}" action="#" method="post">
+		  	<label for="Date">Date</label>
+			<input type="date" id="date" th:value="${#dates.format(dateDebut, 'yyyy-MM-dd')}" th:field="*{date}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+		  	<label for="start">Start</label>
+			<input type="text" id="start" th:field="*{startTime}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			<label for="end">End</label>
+			<input type="text" th:field="*{endTime}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+		  	<label for="location">Location</label>
+			<input type="text" th:field="*{location}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			
+			<div style="clear: both; display: block; height: 10px;"></div>						
+		  	<label for="tutorlist">Tutor Name</label>
+				<select id="tutorlist" th:field="*{tutor}" class="form-control">
+					<option th:each="select: ${tutors}" th:value="${select.id}" 
+						th:text="${select.name}"></option>
+				</select>
+			<!-- Add drop-list -->
+			<div style="clear: both; display: block; height: 10px;"></div>						
+		  	<label for="languagelist">Teaching Language</label>
+				<select id="languagelist" th:field="*{language}" class="form-control">
+					<option th:each="language: ${language}" th:value="${language.id}"
+						th:text="${language.name}"></option>
+				</select>
+<br>
+			
+			<input type="submit" class="btn btn-success" value="Save"></input>
+		</form>
+	</div>
+	<br>
+	<a href="/tutorlist" class="btn btn-warning">Cancel</a>
+	</div>
+</body>
+</html>

@@ -94,5 +94,21 @@ public class WebController {
 	return "schedule";
 	
 	}
+    
+    @RequestMapping(value="/booktutor")
+	public String bookTutor(  Model model) {
+		model.addAttribute("lesson",new LessonEntity());
+		model.addAttribute("language", langRepository.findAll());
+		model.addAttribute("tutors",tutorRepository.findAll());
+		
+		return "booktutor";
+	}
+    
+    @RequestMapping(value="/save", method=RequestMethod.POST)
+	public String save(LessonEntity lesson) {
+		lessonRepository.save(lesson);
+		
+		return "redirect:tutorlist";
+	}
 
 }
