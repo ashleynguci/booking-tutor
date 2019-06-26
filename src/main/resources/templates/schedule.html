@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+
+<title>Schedule</title>
+<meta http-equiv = "Content-Type" contect = "text/html" charset="UTF-8"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+<br/>
+<br/>
+
+<div class="col-md-4">
+		<h3 th:inline="text"> [[${#httpServletRequest.remoteUser}]] Schedule</h3>
+	</div>
+<div class="col-md-4" style="padding:20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+		</form>
+	</div>
+<table class="table table-striped">
+<tbody>
+<tr>
+					<th>Date</th>
+					<th>From </th>
+					<th>To </th>
+					<th>Location</th>
+					<th>Teaching Language</th>
+					<th>Satisfaction</th>
+					<th>isCompleted</th>
+					 
+				</tr>
+<tr th:each="lesson : ${tutors.lessons}">
+<td th:text="${#dates.format(lesson.date, 'dd-MM-yyyy')}"></td>
+<td th:text="${lesson.startTime}"></td>
+<td th:text="${lesson.endTime}"></td>
+
+<td th:text="${lesson.location}"></td>
+<td th:text="${lesson.language.name}" ></td>
+<td th:text="${lesson.satisfactionLevel}"></td>
+<td th:text="${lesson.completed}"></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<a href="/booktutor" class="btn btn-primary">Book</a>
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>

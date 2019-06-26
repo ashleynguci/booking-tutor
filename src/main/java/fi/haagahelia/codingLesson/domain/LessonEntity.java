@@ -1,6 +1,7 @@
 package fi.haagahelia.codingLesson.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -34,8 +37,31 @@ public class LessonEntity implements Serializable {
 	@Column(name = "location")
 	private String location;
 
+	@Column(name = "Date")
+	private Date date;
+	
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 	@Column(name = "satisfaction_level")
 	private Integer satisfactionLevel;
+
+	@Column(name="completed")
+	private boolean completed;
+	
+	public boolean isCompleted() {
+		return completed;
+	}
+
+	public void setCompleted(boolean completed) {
+		this.completed = completed;
+	}
 
 	@ManyToOne
 	@JsonIgnore
@@ -50,14 +76,16 @@ public class LessonEntity implements Serializable {
 	public LessonEntity() {
 	}
 
-	public LessonEntity(String startTime, String endTime, String location, Integer satisfactionLevel,
-			LanguageEntity language, TutorEntity tutor) {
+	public LessonEntity(Date date, String startTime, String endTime, String location, Integer satisfactionLevel,
+			LanguageEntity language, TutorEntity tutor, boolean completed) {
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.location = location;
 		this.satisfactionLevel = satisfactionLevel;
 		this.language = language;
 		this.tutor = tutor;
+		this.completed = completed;
+		this.date = date;
 	}
 
 	public int getId() {

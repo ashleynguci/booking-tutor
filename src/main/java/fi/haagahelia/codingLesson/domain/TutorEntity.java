@@ -30,17 +30,27 @@ public class TutorEntity {
     @Column(name="name")
     private String name;
 
-    
+    @Column(name="background")
+    private String background;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "tutor")
+    public String getBackground() {
+		return background;
+	}
+
+	public void setBackground(String background) {
+		this.background = background;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "tutor")
     private List<LessonEntity> lessons;
 
     public TutorEntity(){
 
     }
 
-    public TutorEntity(String name) {
+    public TutorEntity(String name,String background) {
         this.name = name;
+        this.background = background;
     }
 
 
