@@ -15,7 +15,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import fi.haagahelia.codingLesson.domain.TutorEntity;
 import fi.haagahelia.codingLesson.domain.LessonEntity;
 import fi.haagahelia.codingLesson.domain.LanguageEntity;
+import fi.haagahelia.codingLesson.repo.LanguageRepository;
 import fi.haagahelia.codingLesson.repo.LessonRepository;
+import fi.haagahelia.codingLesson.repo.TutorRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -23,7 +25,7 @@ public class LessonRepositoryTest {
 
     @Autowired
     private LessonRepository repository;
-
+    
     @Test
     public void findByIdShouldReturnLesson() {
         List<LessonEntity> lessons = repository.findById(1);
@@ -35,7 +37,7 @@ public class LessonRepositoryTest {
     @Test
     public void createNewLesson() throws ParseException {
     	SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd"); 
-    	LessonEntity lesson = new LessonEntity(format.parse("2019-06-16"),"15:00","18:00", "Arentikuja 1D304", 4, new LanguageEntity("C#"), new TutorEntity("Katie Nguyen","Third year IT student at Aalto Univeristy"),true);
+    	LessonEntity lesson = new LessonEntity(format.parse("2019-06-16"),"15:00","18:00", "Arentikuja 1D304", 4, new LanguageEntity("React"), new TutorEntity("Vesa Huotarinen","Frontend Trainee at Reaktor"),true);
 
     	repository.save(lesson);
     	assertThat(lesson.getId()).isNotNull();

@@ -3,6 +3,7 @@ package fi.haagahelia.codingLesson;
 import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import fi.haagahelia.codingLesson.repo.TutorRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class TutorRepositoryTests {
 
     @Autowired

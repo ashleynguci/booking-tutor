@@ -17,12 +17,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 
+import org.springframework.context.annotation.ComponentScan;
 
 
 
 @SpringBootApplication
 
-
+@ComponentScan({ "fi.haagahelia.codingLesson.*" })
 public class CodingLessonApplication {
 
 	public static void main(String[] args) {
