@@ -8,17 +8,12 @@
 </head>
 <body>
 <div class="container">
-<br/>
-<br/>
-<h1>Tutor list</h1>
 
+<h1>Tutor list</h1>
 
 <div class="col-md-4">
 		<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
 	</div>
-	
-	<br>
-	<br>
 	
 <div  style="padding:20px 0">
 		<form th:action="@{/logout}" method="post">
@@ -28,7 +23,7 @@
 <table class="table table-striped table-dark">
 <tbody>
 <tr>
-					<th>Id</th>
+					
 					<th>Date</th>
 					<th>Start </th>
 					<th>End</th>
@@ -41,7 +36,7 @@
 				</tr>
 <tr th:each ="lesson:${lessons}">
 
-<td th:text="${lesson.id}"></td>
+
 <td th:text="${#dates.format(lesson.date, 'dd-MM-yyyy')}"></td>
 <td th:text="${lesson.startTime}"></td>
 <td th:text="${lesson.endTime}"></td>

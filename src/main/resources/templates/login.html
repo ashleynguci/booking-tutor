@@ -5,41 +5,214 @@
 <title>Please sign in</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<style>
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #e7e7e7;
+}
+.wrapper {
+    width: 800px;
+    height: 600px;
+    position: relative;
+    margin: 3% auto;
+    box-shadow: 2px 18px 70px 0px #9D9D9D;
+    overflow: hidden;
+}
 
+.login-text {
+    width: 800px;
+    height:450px;
+    background: linear-gradient(to left, #ab68ca, #de67a3); 
+    position: absolute;
+    top: -300px;
+    box-sizing: border-box;
+    padding: 6%;
+    transition: all 0.5s ease-in-out;
+    z-index: 11;
+}
+
+.text {
+    margin-left: 20px;
+    color: #fff;
+    display: none;
+    transition: all 0.5s ease-in-out;
+    transition-delay: 0.3s;
+
+    a, a:visited {
+        font-size: 36px;
+        color: #fff;
+        text-decoration: none;  
+        font-weight: bold;
+        display: block;
+    }
+
+    hr {
+        width: 10%;
+        float: left;
+        background-color: #fff;
+        font-size: 16px;
+    }
+
+    input {
+        margin-top: 30px;
+        height: 40px;
+        width: 300px;
+        border-radius: 2px;
+        border: none;
+        background-color: #444;
+        opacity: 0.6;
+        outline: none;
+        color: #fff;
+        padding-left: 10px;
+    }
+
+    input[type=text] {
+        margin-top: 60px;
+    }
+
+    button {
+        margin-top: 60px;
+        height: 40px;
+        width: 140px;
+        outline: none;
+    }
+
+    .login-btn {
+        background: #fff;
+        border: none;
+        border-radius: 2px;
+        color: #696a86;
+    }
+
+    .signup-btn {
+        background: transparent;
+        border: 2px solid #fff;;
+        border-radius: 2px;
+        color: #fff;
+        margin-left: 30px;
+    }
+}
+
+.cta {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #696a86;
+    border: 2px solid #fff;
+    position: absolute;
+    bottom: -30px;
+    left: 370px;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.call-text {
+    background-color: #fff;
+    width: 800px;
+    height: 450px;
+    position: absolute;
+    bottom: 0;
+    padding: 10%;
+    box-sizing: border-box;
+    text-align: center;
+
+    h1 {
+        font-size: 42px;
+        margin-top: 10%;
+        color: #696a86;
+
+        span {
+            color: #333;
+            font-weight: bolder;
+            
+        }
+    }
+
+    button {
+        height: 40px;
+        width: 180px;
+        border: none;
+        border-radius: 20px;
+        background: linear-gradient(to left, #ab68ca, #de67a3); 
+        color: #fff;
+        font-weight: bolder;
+        margin-top: 30px;
+        cursor: pointer;
+        outline: none;
+    }
+}
+
+.show-hide {
+    display: block;
+}
+
+.expand {
+    transform: translateY(300px);
+}
+
+</style>
 </head>
 <body>
+<div class="wrapper">
 
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-				<div class="card card-signin my-5">
-					<div class="card-body">
-						<h5 class="card-title text-center">Please Sign In</h5>
-						<div th:if="${param.error}">Invalid username or password.</div>
-						<form class="form-signin" th:action="@{/login}" method="post">
-							<div class="form-label-group">
-								<input type="text" name="username" class="form-control"
-									placeholder="User name" required autofocus> 
-									<!-- <label
-									for="username">User Name</label> -->
-							</div>
-<br/>
-							<div class="form-label-group">
-								<input type="password" name="password" class="form-control"
-									placeholder="Password" required> <!-- <label for="password">Password</label> -->
-							</div>
+  <div class="login-text">
+    <button class="cta"><i class="fas fa-chevron-down fa-1x"></i></button>
+    <div class="text">
+	<h2>Member log in</h2>
+      <hr>
+      <br>
+      <form th:action="@{/login}" method="post">
+      
+      <input type="text" name="username" 
+									placeholder="User name" required autofocus>
+      <br>
+      <br>
+      <input type="password" name="password" 
+									placeholder="Password" required>
 
-<br/>
-							<button class="btn btn-lg btn-primary btn-block"
-								type="submit">Sign in</button>
+      <br>
+      <br>
+      <button class="login-btn"
+								type="submit">Log In</button>
+      
+      
+     </form>
+     <br>
+     
+     <p>Don't have an account? <span> <button class="signup-btn"><a th:href="@{/signup}" >Sign Up</a></button></span></p>
+    </div>
+  </div>
+   
+  <div class="call-text">
+    <h1>Do you want to<span> book </span>a tutor?</h1>
+    <p>With few simple steps, you can book a coding tutor with experienced in many languages: Java, HTML, C#, Python</p>
+    <br>
+    
+    <h3>Coding never easier than now!</h3>
+  </div>
 
-						</form>
-						<a th:href="@{/signup}">Sign up</a>
+</div>
+<script>
+var cta = document.querySelector(".cta");
+var check = 0;
 
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+cta.addEventListener('click', function(e){
+    var text = e.target.nextElementSibling;
+    var loginText = e.target.parentElement;
+    text.classList.toggle('show-hide');
+    loginText.classList.toggle('expand');
+    if(check == 0)
+    {
+        cta.innerHTML = "<i class=\"fas fa-chevron-up\"></i>";
+        check++;
+    }
+    else
+    {
+        cta.innerHTML = "<i class=\"fas fa-chevron-down\"></i>";
+        check = 0;
+    }
+})
+</script>
 </body>

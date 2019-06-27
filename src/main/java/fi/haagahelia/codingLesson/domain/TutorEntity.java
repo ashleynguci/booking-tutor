@@ -48,14 +48,15 @@ public class TutorEntity {
 
     }
 
+    /**
+     * This contructs a tutor with specific name, background
+     * @param name
+     * @param background
+     */
     public TutorEntity(String name,String background) {
         this.name = name;
         this.background = background;
     }
-
-
-    
-
  
     public Long getId() {
 		return id;

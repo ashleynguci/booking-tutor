@@ -8,8 +8,7 @@
 </head>
 <body>
 <div class="container">
-<br/>
-<br/>
+
 <h1>Tutor list</h1>
 
 
@@ -17,8 +16,7 @@
 		<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
 	</div>
 	
-	<br>
-	<br>
+	
 	<a sec:authorize="hasAuthority('ADMIN')" href="/lessonlist" class="btn btn-danger">Admin Page</a>
 <div class="col-md-4" style="padding:20px 0">
 		<form th:action="@{/logout}" method="post">

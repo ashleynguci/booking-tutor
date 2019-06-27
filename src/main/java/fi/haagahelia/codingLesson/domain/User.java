@@ -13,7 +13,9 @@ public class User {
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
-    // Username with unique constraint
+    /**
+     * User with unique constraint
+     */
     @Column(name = "username", nullable = false, unique = true)
     private String username;
 
@@ -26,6 +28,12 @@ public class User {
     public User() {
     }
 
+    /**
+     * User class has 3 parameters
+     * @param username
+     * @param passwordHash
+     * @param role
+     */
 	public User(String username, String passwordHash, String role) {
 		super();
 		this.username = username;

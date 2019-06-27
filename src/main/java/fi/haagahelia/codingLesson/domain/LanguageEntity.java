@@ -15,8 +15,13 @@ import javax.persistence.Table;
 import java.util.List;
 
 @Entity
+/**
+ * 
+ * @author TrucAnh
+ *
+ */
 @Table(name = "language", schema = "public", catalog = "postgres")
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+ 
 public class LanguageEntity {
 	
     @Id
@@ -34,14 +39,15 @@ public class LanguageEntity {
     public LanguageEntity(){
 
     }
+    /**
+     * This constructs a language entity with a specific name
+     * @param name
+     */
 
     public LanguageEntity(String name) {
 
         this.name = name;
     }
-
-
-    
 
   
     public Long getId() {

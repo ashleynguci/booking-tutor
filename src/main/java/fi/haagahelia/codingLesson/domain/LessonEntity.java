@@ -28,7 +28,6 @@ public class LessonEntity implements Serializable {
 	private Long id;
 
 	@Column(name = "start_time")
-//    @JsonFormat(pattern="yyyy-MM-dd HH:mm", shape=Shape.STRING)
 	private String startTime;
 
 	@Column(name = "end_time")
@@ -76,6 +75,17 @@ public class LessonEntity implements Serializable {
 	public LessonEntity() {
 	}
 
+	/**
+	 * This contructs a lesson with a specific date, starthour,endhour, location, satisfacetionLevel, language, tutor and completed status
+	 * @param date
+	 * @param startTime
+	 * @param endTime
+	 * @param location
+	 * @param satisfactionLevel
+	 * @param language
+	 * @param tutor
+	 * @param completed
+	 */
 	public LessonEntity(Date date, String startTime, String endTime, String location, Integer satisfactionLevel,
 			LanguageEntity language, TutorEntity tutor, boolean completed) {
 		this.startTime = startTime;
