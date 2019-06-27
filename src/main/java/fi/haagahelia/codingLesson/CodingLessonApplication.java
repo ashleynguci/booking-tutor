@@ -21,6 +21,8 @@ import org.springframework.context.annotation.Bean;
 
 
 @SpringBootApplication
+
+
 public class CodingLessonApplication {
 
 	public static void main(String[] args) {
@@ -51,6 +53,8 @@ public class CodingLessonApplication {
 		lessonRepository.save( new LessonEntity(format.parse("2019-06-12"),"09:00","13:00", "Hamenkatu 10A", 5, langRepository.findByName("C#").get(0), tutorRepository.findByName("Katie Nguyen").get(0),true));
 		lessonRepository.save( new LessonEntity(format.parse("2019-06-18"),"19:00","21:30", "Aurakatu 123", 3, langRepository.findByName("React").get(0), tutorRepository.findByName("Carlos Sunila").get(0),true));
 		lessonRepository.save( new LessonEntity(format.parse("2019-06-22"),"14:00","16:00", "Yo kyla  5D7", 4, langRepository.findByName("Javascript").get(0), tutorRepository.findByName("Carlos Sunila").get(0),true));
+		lessonRepository.save( new LessonEntity(format.parse("2019-06-25"),"12:00","15:30", "California 123A.34", 3, langRepository.findByName("Spring Boot").get(0), tutorRepository.findByName("Felix Bloch").get(0),true));
+		lessonRepository.save( new LessonEntity(format.parse("2019-06-27"),"14:00","16:00", "Yo kyla  5D7", 4, langRepository.findByName("Python").get(0), tutorRepository.findByName("Carlos Sunila").get(0),false));
 
 		userRepository.save(new User("user", "$2a$10$iaA5jcbqZbs5Qfz4eC1GR.djm6ug32hghD0oRxY5EasJgqQkgCk4O", "USER"));
 		userRepository.save(new User("admin", "$2a$10$OPO.1kKxqwU7m8aCkBlm5OYWGbRx2ol9k6N382WJP6UsjFsGlJZq2", "ADMIN"));
