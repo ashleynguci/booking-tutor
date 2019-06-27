@@ -35,7 +35,7 @@ public class LessonRepositoryTest {
     @Test
     public void createNewLesson() throws ParseException {
     	SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd"); 
-    	LessonEntity lesson = new LessonEntity(format.parse("2019-06-16"),"15:00","18:00", "Arentikuja 1D304", 4, new LanguageEntity("NodeJs"), new TutorEntity("Katie Perri","Singer"),true);
+    	LessonEntity lesson = new LessonEntity(format.parse("2019-06-16"),"15:00","18:00", "Arentikuja 1D304", 4, new LanguageEntity("C#"), new TutorEntity("Katie Nguyen","Third year IT student at Aalto Univeristy"),true);
 
     	repository.save(lesson);
     	assertThat(lesson.getId()).isNotNull();

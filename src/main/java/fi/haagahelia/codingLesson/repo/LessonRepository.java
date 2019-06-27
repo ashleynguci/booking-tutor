@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
     public interface LessonRepository extends JpaRepository<LessonEntity, Long> {
 
-		List<LessonEntity> findById(int i);
+		List<LessonEntity> findById(int id);
     	
     	
 
