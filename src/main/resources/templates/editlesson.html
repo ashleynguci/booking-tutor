@@ -9,7 +9,7 @@
 <body>
 <div class="container">
 <br/>
-<h1>Edit Book</h1>
+<h1>Edit Lesson</h1>
 <div>
 <form th:object="${lesson}" th:action="@{../save}" action="#" method="post">
 <input type="hidden" th:field="*{id}" class="form-control"/>
@@ -27,10 +27,10 @@
 <br>
 <label for="satisfaction">SatisfactionLevel</label>
 <input type="text" th:field="*{satisfactionLevel}" />
-
+<br>
 <label for="completed">isCompleted</label>
 <input type="checkbox" th:field="*{completed}" th:checked="${flag} ? 'checked'" />
-
+<br>
 <label for="tutorlist">Tutor</label>
 <select id="tutorlist" th:field="*{tutor}" class="form-control">
 					<option th:each="tutor: ${tutors}" th:value="${tutor.id}"
