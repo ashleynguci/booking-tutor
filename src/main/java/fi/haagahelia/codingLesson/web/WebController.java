@@ -165,12 +165,31 @@ public class WebController {
 		return "editlesson";
 
 	}
+	
+	/**
+	 * Return page when submit book lesson
+	 * @param lesson
+	 * @return
+	 */
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(LessonEntity lesson) {
 		lessonRepository.save(lesson);
 
 		return "redirect:tutorlist";
+	}
+	
+	/**
+	 * Return page when submit book lesson
+	 * @param lesson
+	 * @return
+	 */
+
+	@RequestMapping(value = "/edit", method = RequestMethod.POST)
+	public String edit(LessonEntity lesson) {
+		lessonRepository.save(lesson);
+
+		return "redirect:lessonlist";
 	}
 
 }

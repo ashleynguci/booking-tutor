@@ -11,7 +11,7 @@
 <br/>
 <h1>Edit Lesson</h1>
 <div>
-<form th:object="${lesson}" th:action="@{../save}" action="#" method="post">
+<form th:object="${lesson}" th:action="@{../edit}" action="#" method="post">
 <input type="hidden" th:field="*{id}" class="form-control"/>
 <label for="title">Date</label>
 <input type="date" id="Title" th:field="*{date}" />
