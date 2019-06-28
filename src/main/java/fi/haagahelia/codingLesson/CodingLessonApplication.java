@@ -59,9 +59,9 @@ public class CodingLessonApplication {
 			lessonRepository.save(new LessonEntity(format.parse("2019-06-25"), "12:00", "15:30", "California 123A.34",
 					3, langRepository.findByName("Spring Boot").get(0),
 					tutorRepository.findByName("Felix Bloch").get(0), true));
-			lessonRepository.save(new LessonEntity(format.parse("2019-06-27"), "14:00", "16:00", "Yo kyla  5D7", 4,
+			lessonRepository.save(new LessonEntity(format.parse("2019-06-27"), "14:00", "16:00", "Yo kyla  5D7", 5,
 					langRepository.findByName("Python").get(0), tutorRepository.findByName("Carlos Sunila").get(0),
-					false));
+					true));
 
 			userRepository
 					.save(new User("user", "$2a$10$iaA5jcbqZbs5Qfz4eC1GR.djm6ug32hghD0oRxY5EasJgqQkgCk4O", "USER"));
