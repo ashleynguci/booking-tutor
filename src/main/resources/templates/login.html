@@ -107,7 +107,9 @@ body {
     cursor: pointer;
     z-index: 11;
 }
-
+.error{
+color: red;
+}
 .call-text {
     background-color: #fff;
     width: 800px;
@@ -158,11 +160,13 @@ body {
 <div class="wrapper">
 
   <div class="login-text">
+  
     <button class="cta"><i class="fas fa-chevron-down fa-1x"></i></button>
     <div class="text">
 	<h2>Member log in</h2>
       <hr>
       <br>
+      <div th:if="${param.error}">Invalid username or password.</div>
       <form th:action="@{/login}" method="post">
       
       <input type="text" name="username" 
@@ -180,17 +184,21 @@ body {
       
      </form>
      <br>
-     
+     <br>
      <p>Don't have an account? <span> <button class="signup-btn"><a th:href="@{/signup}" >Sign Up</a></button></span></p>
     </div>
   </div>
    
   <div class="call-text">
+ 
+  <div th:if="${param.error}" class="error">Invalid username or password. Please try again</div>
     <h1>Do you want to<span> book </span>a tutor?</h1>
     <p>With few simple steps, you can book a coding tutor with experienced in many languages: Java, HTML, C#, Python</p>
     <br>
     
     <h3>Coding never easier than now!</h3>
+    
+    
   </div>
 
 </div>
